@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import dayjs from "dayjs";
 import cors from "cors";
 
-import db from "./db.ja";
+import db from "./db.js";
 
 const router = Router();
 const app = express();
