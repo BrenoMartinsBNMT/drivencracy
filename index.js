@@ -11,7 +11,7 @@ app.use(json());
 app.use(cors());
 dotenv.config();
 
-router.get("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("chegou no servidor");
 });
 
