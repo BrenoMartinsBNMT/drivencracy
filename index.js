@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import { pollRegister } from "./controllers/pollRegister.js";
 import { ShowPolls } from "./controllers/showPolls.js";
 import cors from "cors";
+import { ChoicePolls } from "./controllers/choicePoll.js";
 
 const app = express();
 
@@ -16,7 +17,7 @@ app.get("/", async (req, res) => {
 
 app.post("/poll", pollRegister);
 app.get("/poll", ShowPolls);
-app.post("/choice");
+app.post("/choice", ChoicePolls);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
