@@ -1,8 +1,11 @@
+import { ObjectId } from "bson";
 import db from "../db.js";
 
 export async function ChoicePolls(req, res) {
   let { title, poolId } = req.body;
-  let pollExist = await db.collection("polls").findOne({ poolId });
+  let pollExist = await db
+    .collection("polls")
+    .findOne({ _id: new ObjectId(poolId) });
   if (!pollExist) {
     return res.sendStatus(404);
   }
