@@ -1,19 +1,22 @@
-import express, { json, Router } from "express";
+import express, { json } from "express";
 import dotenv from "dotenv";
 import dayjs from "dayjs";
+import { pollRegister } from "./controllers/pollRegister.js";
+import { ShowPolls } from "./controllers/showPolls.js";
 import cors from "cors";
 
-import db from "./db.js";
-
-const router = Router();
 const app = express();
+
 app.use(json());
 app.use(cors());
 dotenv.config();
-
-app.get("/", (req, res) => {
-  res.send("chegou no servidor");
+app.get("/", async (req, res) => {
+  res.send("ok");
 });
+
+app.post("/poll", pollRegister);
+app.get("/poll", ShowPolls);
+app.post("/choice");
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
