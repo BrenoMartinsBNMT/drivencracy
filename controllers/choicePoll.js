@@ -14,5 +14,7 @@ export async function ChoicePolls(req, res) {
     if (!pollExist) {
       return res.sendStatus(404);
     }
+
+    await db.collection();
   } catch {}
 }
